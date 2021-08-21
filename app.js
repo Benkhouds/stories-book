@@ -44,7 +44,6 @@ app.use(session({
  secret: "secret",
  resave: false,
  saveUninitialized: false,
- cookie:{secure:true},
  store: MongoStore.create({clientPromise:clientP})
 }));
 //passport middleware
