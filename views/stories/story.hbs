@@ -1,0 +1,21 @@
+<h1 class="pageTitle relative max-w-max text-gray-600 text-2xl font-bold">Have fun reading the story :)</h1>
+<div class="max-w-5xl mx-auto grid grid-cols-4 mt-8 ">
+  <div class="col-span-3  w-auto py-4 px-8 mr-8 ring-1 ring-gray-200 shadow-md rounded">
+      <h3 class="text-indigo-500 title max-w-min  top-1 relative text-opacity-60  text-3xl font-semibold mb-2 whitespace-nowrap">{{story.title}}</h3>
+      <p class="text-gray-400  text-sm mb-6">{{formatDate story.createdAt}}</p>
+      <p class="break-words text-gray-500 text-lg tracking-wider ">
+        {{{cleanString story.body}}}
+      </p>
+      {{{ actionIcons story.user._id loggedUser story._id}}} 
+      
+     
+  </div>
+  <div class="w-full h-64 rounded-md ring-1 ring-gray-200 shadow-md p-4 divide-y divide-1 divide-gray-200 text-center">
+       <div>
+         <h4 class="text-2xl text-gray-500 displayName relative  max-w-max font-bold whitespace-nowrap">{{story.user.displayName}}</h4>
+         <img class="w-20 h-20 rounded-full my-8 mx-auto" src="{{story.user.image}}" alt="user_image">
+       </div>
+       <a class="inline-block bg-indigo-300 hover:bg-indigo-400 text-white font-medium tracking-wider capitalize rounded shadow px-4 py-2 " href="/stories/user/{{story.user._id}}">More From {{story.user.firstName}}</a>
+  </div>
+  
+</div>

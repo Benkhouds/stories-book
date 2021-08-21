@@ -1,0 +1,56 @@
+<h1 class="pageTitle relative max-w-max text-gray-600 text-2xl font-bold mt-2 mb-6">Add Story</h1>
+<div class="w-3/5 mx-auto">
+  <form action="/stories/add" method="POST">
+    <div class="my-6">
+      <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Title</label>
+      <input type="text" placeholder="Title" name="title" id="title"
+        class="mt-1 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md p-2" />
+    </div>
+    <div class="mb-6">
+      <label for="status" class="block text-sm font-medium text-gray-700 mb-2">Status</label>
+      <select id="status" name="status"
+        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+        <option value="public">Public</option>
+        <option value="private">Private</option>
+      </select>
+    </div>
+    <div>
+      <label for="body" class="block text-sm font-medium text-gray-700 mb-2">
+        Story:
+      </label>
+      <div class="mt-1 p-1 border border-gray-300 rounded ">
+        <textarea id="body" name="body" rows="5"
+          class="focus:outline-none focus:ring-1 focus:border-indigo-500 p-3 shadow-sm focus:ring-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
+          placeholder="Surprise us "></textarea>
+      </div>
+      <p class="mt-2 text-sm text-gray-500">
+        Have fun writing your story.
+      </p>
+    </div>
+    <button type="submit"
+      class="mt-4 float-right py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+      Save
+    </button>
+  </form>
+</div>
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+<script>
+  CKEDITOR.replace('body', {
+    toolbar: [{
+      name: 'styles', items: ['Styles',
+        'Format']
+    }, { name: 'basicstyles', items: ['Bold', 'Italic'] }, {
+      name:
+        'links', items: ['Link']
+    },],
+  }) ;
+  let interval = setInterval(() => {
+    console.log('in') 
+    if (document.getElementById('cke_body') !== null) {
+      document.getElementById('cke_body').style.border = 'none'
+      document.getElementById('cke_1_bottom').style.display = "none"
+      clearInterval(interval)
+    }
+  }, 40) 
+
+</script>
